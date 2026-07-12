@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Lora:ital,wght@0,500;1,600&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <!-- TIKTOK PIXEL -->
 <script>
@@ -22,63 +22,77 @@
 </script>
 
 <style>
-:root{--grafite:#1A1D23;--grafite-deep:#121419;--turquesa:#4FD1C5;--branco:#F7F9F9;--cinza:#4A5560;--cinza-claro:#8A96A3}
+:root{--grafite:#1A1D23;--grafite-deep:#121419;--turquesa:#4FD1C5;--turquesa-deep:#2CA69B;--branco:#F7F9F9;--bege:#F1EEE7;--cinza:#4A5560;--cinza-claro:#8A96A3}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Lato',sans-serif;background:var(--branco);color:var(--cinza);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
-h1,h2{font-family:'Space Grotesk',sans-serif;color:var(--grafite)}
-.topbar{background:var(--grafite-deep);padding:16px 0}
+h1,h2{font-family:'Space Grotesk',sans-serif;color:var(--grafite);font-weight:700;letter-spacing:-.4px}
+.serif{font-family:'Lora',serif;font-style:italic;font-weight:500;color:var(--turquesa-deep)}
+.hl{background:linear-gradient(180deg,transparent 58%,rgba(79,209,197,.35) 58%);padding:0 3px}
+.eyebrow{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--turquesa-deep);display:block;margin-bottom:10px}
+.eyebrow::before{content:'// ';opacity:.6}
+.topbar{background-color:var(--grafite-deep);background-image:radial-gradient(rgba(79,209,197,.07) 1px,transparent 1px);background-size:22px 22px;padding:18px 0}
 .topbar .container{max-width:680px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:10px;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700}
 .logo-icon{width:30px;height:30px;background:var(--turquesa);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--grafite-deep);font-weight:800}
-main{flex:1;max-width:680px;margin:0 auto;padding:48px 24px;width:100%}
+main{flex:1;max-width:600px;margin:0 auto;padding:56px 24px;width:100%}
 .hidden{display:none}
+</style>
+
+<style>
 @keyframes girar{to{transform:rotate(360deg)}}
 .spinner{animation:girar 1s linear infinite}
-.icone{width:72px;height:72px;background:#E9FBF9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--turquesa)}
-.btn{display:inline-block;background:var(--turquesa);color:var(--grafite-deep);font-weight:700;padding:16px 32px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;font-size:16px}
-.card{background:#fff;border:1px solid #E5E7EA;border-radius:16px;padding:32px;margin-bottom:20px}
+.icone{width:76px;height:76px;background:var(--grafite-deep);background-image:radial-gradient(rgba(79,209,197,.12) 1px,transparent 1px);background-size:10px 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--turquesa);box-shadow:0 14px 30px rgba(18,20,25,.22)}
+.btn{display:inline-block;background:var(--turquesa);color:var(--grafite-deep);font-weight:700;padding:17px 34px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;font-size:16px;font-family:'Lato';transition:.2s;box-shadow:6px 6px 0 rgba(44,166,155,.5)}
+.btn::after{content:' →';font-weight:800}
+.btn:hover{background:#6FE0D5;transform:translate(-2px,-2px);box-shadow:9px 9px 0 rgba(44,166,155,.55)}
+.card{background:#fff;border:1px solid #E7E2D6;border-radius:16px;padding:34px 30px;margin-bottom:20px}
 input{width:100%;padding:12px 14px;border:1.5px solid #E5E7EA;border-radius:8px;font-size:14px;margin-top:6px;font-family:'Lato'}
-label{font-size:12px;font-weight:700;text-transform:uppercase;color:var(--cinza)}
+label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--cinza)}
 .field{margin-bottom:16px}
+.mono-note{font-family:'Space Mono',monospace;font-size:11px;color:var(--cinza-claro);letter-spacing:.5px}
 </style>
 </head>
+
 <body>
 <div class="topbar"><div class="container"><span class="logo-icon">M</span> Medina'S Produções</div></div>
 <main>
-  <div id="estado-verificando" style="text-align:center;padding:80px 0">
-    <svg class="spinner" width="48" height="48" viewBox="0 0 24 24" style="color:var(--turquesa)"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" opacity="0.25"/><path d="M12 2a10 10 0 0110 10" stroke="currentColor" stroke-width="3" fill="none"/></svg>
-    <p style="margin-top:16px;font-weight:600">Verificando seu pagamento...</p>
+  <div id="estado-verificando" style="text-align:center;padding:90px 0">
+    <svg class="spinner" width="46" height="46" viewBox="0 0 24 24" style="color:var(--turquesa)"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" opacity="0.25"/><path d="M12 2a10 10 0 0110 10" stroke="currentColor" stroke-width="3" fill="none"/></svg>
+    <p class="mono-note" style="margin-top:18px">// verificando seu pagamento...</p>
   </div>
 
   <div id="estado-sucesso" class="hidden">
     <div style="text-align:center;margin-bottom:32px">
       <div class="icone"><svg width="34" height="34" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
-      <h1>Pagamento confirmado!</h1>
-      <p style="color:var(--cinza-claro);margin-top:8px">Seu acesso ao guia já está liberado.</p>
+      <span class="eyebrow" style="text-align:center">Pagamento aprovado</span>
+      <h1>Tudo <span class="serif hl">certo</span> por aqui!</h1>
+      <p style="color:var(--cinza-claro);margin-top:10px">Seu acesso ao guia já está liberado.</p>
     </div>
     <div class="card" style="text-align:center">
-      <a href="assets/ia-no-trabalho.pdf" class="btn" download>Baixar meu Guia Agora →</a>
-      <p style="font-size:12px;color:var(--cinza-claro);margin-top:16px">Salve este link — seu acesso é vitalício.</p>
+      <a href="assets/ia-no-trabalho.pdf" class="btn" download>Baixar meu guia agora</a>
+      <p class="mono-note" style="margin-top:16px">// salve este link — seu acesso é vitalício</p>
     </div>
   </div>
 
   <div id="estado-manual" class="hidden">
     <div style="text-align:center;margin-bottom:32px">
       <div class="icone"><svg width="34" height="34" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
-      <h1>Recebemos sua compra!</h1>
-      <p style="color:var(--cinza-claro);margin-top:8px">Falta só confirmar pra liberarmos seu acesso.</p>
+      <span class="eyebrow" style="text-align:center">Compra recebida</span>
+      <h1>Falta só <span class="serif hl">confirmar</span></h1>
+      <p style="color:var(--cinza-claro);margin-top:10px">Em instantes liberamos seu acesso.</p>
     </div>
     <div class="card">
-      <h2 style="font-size:18px;margin-bottom:16px">Confirme sua compra</h2>
+      <h2 style="font-size:18px;margin-bottom:18px">Confirme sua compra</h2>
       <div class="field"><label>Seu nome</label><input type="text" id="conf-nome"></div>
       <div class="field"><label>E-mail usado na compra</label><input type="email" id="conf-email"></div>
       <button class="btn" style="width:100%" onclick="enviarWhatsApp()">Confirmar via WhatsApp</button>
     </div>
-    <p style="text-align:center;font-size:13px;color:var(--cinza-claro)">Dúvidas? <a href="mailto:curriculopro.site@gmail.com" style="color:var(--turquesa)">curriculopro.site@gmail.com</a></p>
+    <p style="text-align:center;font-size:13px;color:var(--cinza-claro)">Dúvidas? <a href="mailto:curriculopro.site@gmail.com" style="color:var(--turquesa-deep)">curriculopro.site@gmail.com</a></p>
   </div>
 </main>
-<footer style="background:var(--grafite-deep);color:#8A96A3;text-align:center;padding:24px 0;font-size:13px">
+<footer style="background:var(--grafite-deep);color:#8A96A3;text-align:center;padding:28px 0;font-size:13px">
   © 2026 IA no Trabalho, Sem Medo — Medina'S Produções.
 </footer>
+
 <script>
 const NUMERO_WHATSAPP_SUPORTE = '5545991359764';
 const HANDLE_INFINITEPAY = 'medina_pay';
